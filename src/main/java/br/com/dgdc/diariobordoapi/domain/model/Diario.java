@@ -27,7 +27,7 @@ public class Diario {
 	@Id
 	@GeneratedValue(strategy = GenerationType.AUTO)
 	@Column(name = "id_diario")
-	private long id;
+	private Long id;
 
 	@NotNull
 	@Temporal(TemporalType.DATE)
@@ -35,6 +35,7 @@ public class Diario {
 	@Column(name = "data_fabricacao")
 	private Date data_diario;
 	
+	@NotNull
 	@ManyToOne
 	@JoinColumn(name = "id_usuario")
 	private Usuario usuario;
@@ -45,11 +46,11 @@ public class Diario {
 	@JoinColumn(name = "id_diario")
 	private List<Resposta> resposta;
 
-	public long getId() {
+	public Long getId() {
 		return id;
 	}
 
-	public void setId(long id) {
+	public void setId(Long id) {
 		this.id = id;
 	}
 
