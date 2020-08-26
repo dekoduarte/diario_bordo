@@ -1,5 +1,7 @@
 package br.com.dgdc.diariobordoapi.domain.model;
 
+import java.util.Base64;
+
 import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
@@ -53,5 +55,16 @@ public class Resposta {
 	public void setPergunta(Pergunta pergunta) {
 		this.pergunta = pergunta;
 	}
+
+	public String getTexto() {
+		byte[] arrayBytesDecodificado = Base64.getDecoder().decode(this.texto);
+		return new String(arrayBytesDecodificado);
+	}
+
+	public void setTexto(String texto) {
+		this.texto = Base64.getEncoder().encodeToString(texto.getBytes());
+	}
+	
+	
 
 }

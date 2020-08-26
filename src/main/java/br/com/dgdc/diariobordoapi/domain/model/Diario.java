@@ -31,9 +31,9 @@ public class Diario {
 
 	@NotNull
 	@Temporal(TemporalType.DATE)
-	@JsonFormat(pattern="dd-MM-yyyy HH:mm:ss")
-	@Column(name = "data_fabricacao")
-	private Date data_diario;
+	@JsonFormat(pattern="dd-MM-yyyy")
+	@Column(name = "data_diario")
+	private Date data;
 	
 	@NotNull
 	@ManyToOne
@@ -44,7 +44,7 @@ public class Diario {
 	@Valid
 	@OneToMany(cascade = CascadeType.ALL, orphanRemoval = true)
 	@JoinColumn(name = "id_diario")
-	private List<Resposta> resposta;
+	private List<Resposta> respostas;
 
 	public Long getId() {
 		return id;
@@ -55,11 +55,11 @@ public class Diario {
 	}
 
 	public Date getData_diario() {
-		return data_diario;
+		return data;
 	}
 
 	public void setData_diario(Date data_diario) {
-		this.data_diario = data_diario;
+		this.data = data_diario;
 	}
 
 	public Usuario getUsuario() {
@@ -70,12 +70,12 @@ public class Diario {
 		this.usuario = usuario;
 	}
 
-	public List<Resposta> getResposta() {
-		return resposta;
+	public List<Resposta> getRespostas() {
+		return respostas;
 	}
 
-	public void setResposta(List<Resposta> resposta) {
-		this.resposta = resposta;
+	public void setRespostas(List<Resposta> resposta) {
+		this.respostas = resposta;
 	}
 
 	@Override
