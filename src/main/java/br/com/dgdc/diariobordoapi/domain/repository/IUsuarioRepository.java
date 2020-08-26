@@ -7,5 +7,5 @@ import br.com.dgdc.diariobordoapi.domain.model.Usuario;
 
 @ResponseStatus
 public interface IUsuarioRepository extends JpaRepository<Usuario, Long> {
-
+	public boolean existsByEmail(String email);
 }
