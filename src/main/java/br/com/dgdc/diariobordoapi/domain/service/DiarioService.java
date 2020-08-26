@@ -17,7 +17,7 @@ import br.com.dgdc.diariobordoapi.exceptionHandler.ResourceNotFoundException;
 @Transactional
 public class DiarioService {
 	
-	private final String msgDiarioErro = "Não existe usuario com o id: ";
+	private final String msgDiarioErro = "Não existe diario com o id: ";
 	
 	@Autowired
 	IDiarioRepository repository;
@@ -37,8 +37,8 @@ public class DiarioService {
 
 	public Diario include(Diario diario) {
 
-		if (repository.existsByData_diario(diario.getData_diario())) {
-			throw new ResourceAlreadyExistsException("Ja foram cadastras as resposta para hoje: ",
+		if (repository.existsByData(diario.getData_diario())) {
+			throw new ResourceAlreadyExistsException("Ja foram cadastras as resposta para a data: ",
 					diario.getData_diario().toString());
 		}
 
