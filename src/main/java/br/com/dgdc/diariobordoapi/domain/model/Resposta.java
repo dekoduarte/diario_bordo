@@ -8,6 +8,7 @@ import javax.persistence.Id;
 import javax.persistence.JoinColumn;
 import javax.persistence.ManyToOne;
 import javax.persistence.Table;
+import javax.validation.constraints.NotNull;
 
 @Entity
 @Table(name = "resposta")
@@ -19,13 +20,10 @@ public class Resposta {
 	private Long id;
 
 	@ManyToOne()
-	@JoinColumn(name = "id_diario")
-	private Diario diario;
-
-	@ManyToOne()
 	@JoinColumn(name = "id_pergunta")
 	private Pergunta pergunta;
 
+	@NotNull
 	@Column(name = "texto_resposta")
 	private String texto;
 
@@ -33,10 +31,9 @@ public class Resposta {
 		super();
 	}
 
-	public Resposta(Long id, Diario diario, Pergunta pergunta, String texto) {
+	public Resposta(Long id, Pergunta pergunta, String texto) {
 		super();
 		this.id = id;
-		this.diario = diario;
 		this.pergunta = pergunta;
 		this.texto = texto;
 	}
@@ -47,14 +44,6 @@ public class Resposta {
 
 	public void setId(Long id) {
 		this.id = id;
-	}
-
-	public Diario getDiario() {
-		return diario;
-	}
-
-	public void setDiario(Diario diario) {
-		this.diario = diario;
 	}
 
 	public Pergunta getPergunta() {
