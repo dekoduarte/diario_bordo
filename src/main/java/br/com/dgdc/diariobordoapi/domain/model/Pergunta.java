@@ -16,7 +16,7 @@ public class Pergunta {
 	@Column(name = "id_pergunta")
 	private Long id;
 
-	@Column(name = "texto_resposta")
+	@Column(name = "texto_pergunta")
 	private String texto;
 
 	public Pergunta() {
