@@ -22,12 +22,17 @@ public class Resposta {
 	private Long id;
 
 	@ManyToOne()
+	@JoinColumn(name = "id_diario")
+	private Diario diario;
+	
+	@ManyToOne()
 	@JoinColumn(name = "id_pergunta")
 	private Pergunta pergunta;
 
 	@NotNull
 	@Column(name = "texto_resposta")
 	private String texto;
+	
 
 	public Resposta() {
 		super();
