@@ -12,6 +12,8 @@ import javax.persistence.ManyToOne;
 import javax.persistence.Table;
 import javax.validation.constraints.NotNull;
 
+import com.fasterxml.jackson.annotation.JsonIgnore;
+
 @Entity
 @Table(name = "resposta")
 public class Resposta {
@@ -21,6 +23,7 @@ public class Resposta {
 	@Column(name = "id_resposta")
 	private Long id;
 
+	@JsonIgnore
 	@ManyToOne()
 	@JoinColumn(name = "id_diario")
 	private Diario diario;
