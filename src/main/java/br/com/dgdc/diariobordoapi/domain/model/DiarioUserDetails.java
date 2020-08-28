@@ -23,7 +23,7 @@ public class DiarioUserDetails implements UserDetails {
 
 		this.email = user.getEmail();
 		this.senha = user.getSenha();
-		this.autorizacoes = Arrays.asList("ROLE_USER").stream().map(SimpleGrantedAuthority::new)
+		this.autorizacoes = Arrays.asList(user.getPerfil()).stream().map(SimpleGrantedAuthority::new)
 				.collect(Collectors.toList());
 
 	}

@@ -40,6 +40,9 @@ public class Usuario {
 	@Email(regexp = ".+@.+\\..+", message = "e-mail deve estar em um formato válido.")
 	@Column(name = "email_usuario")
 	private String email;
+	
+	@Column(name = "perfil")
+	private String perfil;
 
 	public long getId() {
 		return id;
@@ -71,6 +74,14 @@ public class Usuario {
 
 	public void setEmail(String email) {
 		this.email = email;
+	}
+
+	public String getPerfil() {
+		return perfil;
+	}
+
+	public void setPerfil(String perfil) {
+		this.perfil = "ROLE_USER";
 	}
 
 	@Override
