@@ -19,13 +19,12 @@ import br.com.dgdc.diariobordoapi.domain.model.Usuario;
 import br.com.dgdc.diariobordoapi.domain.service.UsuarioService;
 
 @RestController
-@RequestMapping("/usuarios")
 public class UsuarioController {
 
 	@Autowired
 	UsuarioService service;
-
-	@GetMapping
+	
+	@GetMapping("/usuarios")
 	public ResponseEntity<List<Usuario>> listarTodos() {
 		return ResponseEntity.ok().body(this.service.getAll());
 	}
@@ -46,7 +45,7 @@ public class UsuarioController {
 		return ResponseEntity.ok().body(service.update(usuario, id));
 	}
 
-	@DeleteMapping("/{id}")
+	@DeleteMapping("/admin/{id}")
 	public ResponseEntity<String> deletar(@PathVariable long id) {
 		service.delete(id);
 		return ResponseEntity.ok().body("Usuario " + id + " excluido com sucesso.");

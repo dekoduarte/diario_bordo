@@ -23,7 +23,7 @@ import com.fasterxml.jackson.annotation.JsonFormat;
 @Entity
 @Table(name = "diario")
 public class Diario {
-	
+
 	@Id
 	@GeneratedValue(strategy = GenerationType.AUTO)
 	@Column(name = "id_diario")
@@ -31,15 +31,15 @@ public class Diario {
 
 	@NotNull
 	@Temporal(TemporalType.DATE)
-	@JsonFormat(pattern="dd-MM-yyyy")
+	@JsonFormat(pattern = "dd-MM-yyyy")
 	@Column(name = "data_diario")
 	private Date data;
-	
+
 	@NotNull
 	@ManyToOne
 	@JoinColumn(name = "id_usuario")
 	private Usuario usuario;
-	
+
 	@NotNull
 	@Valid
 	@OneToMany(cascade = CascadeType.ALL, orphanRemoval = true)
@@ -99,6 +99,5 @@ public class Diario {
 			return false;
 		return true;
 	}
-	
-	
+
 }
