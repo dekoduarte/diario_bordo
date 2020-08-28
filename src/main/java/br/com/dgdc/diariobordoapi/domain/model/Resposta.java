@@ -64,7 +64,4 @@ public class Resposta {
 	public void setTexto(String texto) {
 		this.texto = Base64.getEncoder().encodeToString(texto.getBytes());
 	}
-	
-	
-
 }

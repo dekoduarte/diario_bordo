@@ -19,7 +19,7 @@ import br.com.dgdc.diariobordoapi.domain.model.Diario;
 import br.com.dgdc.diariobordoapi.domain.service.DiarioService;
 
 @RestController
-@RequestMapping("diarios")
+@RequestMapping("/diarios")
 public class DiarioController {
 	
 	@Autowired

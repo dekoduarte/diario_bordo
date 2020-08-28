@@ -16,12 +16,12 @@ import br.com.dgdc.diariobordoapi.exceptionHandler.ResourceNotFoundException;
 @Service
 @Transactional
 public class DiarioService {
-	
+
 	private final String msgDiarioErro = "Não existe diario com o id: ";
-	
+
 	@Autowired
 	IDiarioRepository repository;
-	
+
 	public List<Diario> getAll() {
 		return repository.findAll();
 	}
@@ -48,9 +48,9 @@ public class DiarioService {
 	public Diario update(Diario diario, Long id) {
 		Optional<Diario> opt = repository.findById(id);
 
-		if(!opt.isPresent())
+		if (!opt.isPresent())
 			throw new ResourceNotFoundException(this.msgDiarioErro, id.toString());
-		
+
 		diario.setId(id);
 		return repository.save(diario);
 	}
